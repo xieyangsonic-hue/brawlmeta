@@ -642,16 +642,180 @@ const GUIDES = [
 const UPDATES = [
   { id:'update-1', title:'July 2026 Meta Shift: Gale Joins S-Tier, Kenji Still Dominant',
     tag:'Meta Analysis', date:'July 10, 2026', icon:'📈',
-    excerpt:'The latest balance changes have elevated Gale to S-tier with his unmatched crowd control. Kenji solidifies his position at the top. Full breakdown inside.' },
+    excerpt:'The latest balance changes have elevated Gale to S-tier with his unmatched crowd control. Kenji solidifies his position at the top. Full breakdown inside.',
+    content: {
+      intro: 'The July 2026 balance patch has reshaped the competitive landscape. Gale received two subtle but powerful buffs: a wider Super cone and faster Twister deployment. Combined with the rising assassin meta, these changes made him the single most valuable controller in 3v3 modes. Meanwhile, Kenji remains the crown jewel of S-tier despite minor nerfs to his dash range.',
+      hero: 'Gale Joins S-Tier After Three Months of A-Tier Stagnation',
+      sections: [
+        { title:'Why Gale Moved Up', items:[
+          'Super cone width increased by ~12%, making it easier to catch multiple mobile targets.',
+          'Twister gadget now deploys 0.15s faster, shutting down dives before they connect.',
+          'Assassins (Kenji, Mortis, Edgar) are popular — Gale is the hardest counter to all of them.',
+          'Brawl Ball and Knockout rotations favor lane denial, which Gale provides better than any controller.'
+        ]},
+        { title:'Kenji Retains Dominance: The Numbers', items:[
+          'Pick rate: 42% in Diamond+ Power League (highest of any brawler).',
+          'Ban rate: 38% — often permabanned in the first phase of competitive draft.',
+          'Win rate: 56.2% when not banned, highest among assassins.',
+          'His burst window is still too fast for most supports to react, even after the dash nerf.'
+        ]},
+        { title:'Tier Movement Summary', items:[
+          'Rising: Gale (A → S), Lou (B → A), Byron (B → A).',
+          'Stable: Kenji, Surge, Cordelius remain S-tier; Spike, Crow, Amber hold A-tier.',
+          'Falling: Edgar (C → D), Frank (B → C), Mr. P (C → D), Bo stays in D.',
+          'New entry: Finx debuts at B-tier after one week of tournament data.'
+        ]},
+        { title:'Competitive Implications', items:[
+          'Draft priority has shifted toward controller + assassin pairings.',
+          'Tank-heavy comps are nearly unplayable against Gale + Kenji unless paired with Max speed.',
+          'Hot Zone and Brawl Ball are now Gale’s two strongest modes; Bounty and Heist leave him exposed.',
+          'Expect first-pick Gale or first-ban Kenji in 90% of high-elo games.'
+        ]}
+      ],
+      stats: [
+        { label:'Gale Pick Rate', value:'31%' },
+        { label:'Kenji Ban Rate', value:'38%' },
+        { label:'Assassin Win Rate', value:'54%' },
+        { label:'Tank Win Rate', value:'43%' }
+      ],
+      conclusion: 'The meta is now defined by mobility and disruption. If you want to climb in July 2026, prioritize Gale, Kenji, and Surge, or invest in their counters like Otis and Crow. Tanks require a dedicated team comp and map to remain viable.',
+      author: 'BrawlMeta Analytics Team',
+      readTime: '6 min read'
+    }
+  },
   { id:'update-2', title:'New Brawler Finx: Complete Kit & Build Guide',
     tag:'New Brawler', date:'July 5, 2026', icon:'🆕',
-    excerpt:'Finx brings a time-bending mechanic to Brawl Stars. Deep dive into his attack, Super, Gadgets, Star Powers, and optimal builds for every mode.' },
+    excerpt:'Finx brings a time-bending mechanic to Brawl Stars. Deep dive into his attack, Super, Gadgets, Star Powers, and optimal builds for every mode.',
+    content: {
+      intro: 'Finx is the newest chromatic-style brawler, introducing a "time rewind" mechanic that rewards aggressive positioning and precise cooldown management. His kit is complex but offers some of the highest outplay potential in the game.',
+      hero: 'Finx Breaks the Rules of Brawl Stars Positioning',
+      sections: [
+        { title:'Attack: Chrono Bolt', items:[
+          'Fires a single projectile that deals 1,560 damage at max range.',
+          'Hitting an enemy marks them for 3 seconds; marked enemies take 15% extra damage from Finx.',
+          'Ammo reload is slow (1.8s), so every shot must count.',
+          'Best used to poke and set up kills before committing with Super.'
+        ]},
+        { title:'Super: Temporal Rewind', items:[
+          'Finx records his position and HP for 5 seconds after activation.',
+          'Reactivating Super teleports him back to the recorded spot, restoring 40% of lost HP.',
+          'Teleported explosion on arrival deals 1,800 damage in a small radius.',
+          'Can be used to escape, bait enemy abilities, or reposition aggressively after a dive.'
+        ]},
+        { title:'Gadgets', items:[
+          'Time Snare — Slows marked enemies by 40% for 2 seconds. Essential for landing follow-up shots.',
+          'Future Sight — Reveals all enemies in bushes for 4 seconds. Strong on maps with heavy bush play.',
+          'Recommended: Time Snare for most modes; Future Sight for Showdown and Bounty.'
+        ]},
+        { title:'Star Powers', items:[
+          'Paradox — Rewind explosion radius increased by 50%. Best for area denial and team fights.',
+          'Accelerate — Reduces rewind cooldown by 25%. Better for sustained skirmishes and objective modes.',
+          'Recommended: Paradox for Brawl Ball and Hot Zone; Accelerate for Gem Grab and Knockout.'
+        ]},
+        { title:'Optimal Builds by Mode', items:[
+          'Brawl Ball: Time Snare | Paradox | Damage + Speed',
+          'Gem Grab: Time Snare | Accelerate | Shield + Speed',
+          'Knockout: Time Snare | Paradox | Damage + Shield',
+          'Showdown: Future Sight | Accelerate | Speed + Shield'
+        ]}
+      ],
+      stats: [
+        { label:'Base HP', value:'4,200' },
+        { label:'Attack Damage', value:'1,560' },
+        { label:'Super Heal', value:'40%' },
+        { label:'Movement Speed', value:'Normal' }
+      ],
+      conclusion: 'Finx is a high-skill, high-reward brawler. His initial tournament performance places him at B-tier, but his ceiling is clearly A-tier once players master the rewind timing. Avoid him in Heist and Bounty unless you are extremely comfortable with his Super.',
+      author: 'BrawlMeta Lab',
+      readTime: '8 min read'
+    }
+  },
   { id:'update-3', title:'Brawl Stars World Finals 2026: Roadmap & Predictions',
     tag:'Esports', date:'June 28, 2026', icon:'🏟️',
-    excerpt:'The road to the 2026 World Finals is heating up. Format, qualified teams, prize pool, and bold predictions for the biggest event of the year.' },
+    excerpt:'The road to the 2026 World Finals is heating up. Format, qualified teams, prize pool, and bold predictions for the biggest event of the year.',
+    content: {
+      intro: 'The 2026 Brawl Stars World Finals will crown the best team on the planet this November. With regional qualifiers concluding in September and the Last Chance Qualifier in October, the field is starting to take shape. Here is everything you need to know.',
+      hero: 'World Finals Returns to a Live Arena in November 2026',
+      sections: [
+        { title:'Tournament Format', items:[
+          '16 teams qualify through 8 regional competitions (NA, LATAM, EMEA, East Asia, Southeast Asia, South Asia, MENA, Oceania).',
+          'Group Stage: Four groups of four, double round-robin, best-of-5 series.',
+          'Bracket Stage: Single elimination, best-of-7, with a grand final that could go to best-of-9.',
+          'Map pool is drafted publicly before each match, with one global ban per team.'
+        ]},
+        { title:'Qualified Teams (So Far)', items:[
+          'NA: Tribe Gaming NA and STMN Esports lead the standings.',
+          'EMEA: SK Gaming and AC Milan Qlash are the early favorites.',
+          'LATAM: STMN LATAM and Chivas Esports look dominant in regional play.',
+          'East Asia: ZETA DIVISION is rebuilding but still a top contender.',
+          'Southeast Asia: PSG Esports and RSG are fighting for the single spot.'
+        ]},
+        { title:'Prize Pool & Viewership', items:[
+          'Total prize pool: $1,000,000 USD, with $400,000 for the champion.',
+          'Crowdfunding through in-game World Finals bundle expected to push total above $1.3M.',
+          'Last year peaked at 1.8 million concurrent viewers; organizers expect 2.2M+ in 2026.'
+        ]},
+        { title:'Meta Predictions', items:[
+          'Kenji and Gale will be the two most banned brawlers if the current meta holds.',
+          'Teams with flexible Flex players will outperform one-trick rosters.',
+          'Finx will be a surprise pick in Knockout if his reworked HP buff arrives before October.',
+          'Showdown and Bounty are unlikely to appear in the main bracket; expect Brawl Ball, Gem Grab, and Hot Zone dominance.'
+        ]}
+      ],
+      stats: [
+        { label:'Prize Pool', value:'$1M+' },
+        { label:'Teams', value:'16' },
+        { label:'Regions', value:'8' },
+        { label:'Peak Viewers (Est.)', value:'2.2M' }
+      ],
+      conclusion: 'The 2026 World Finals will be the most competitive yet. Watch the regional qualifiers in September to spot the next breakout strategy and adjust your ladder picks accordingly.',
+      author: 'BrawlMeta Esports Desk',
+      readTime: '5 min read'
+    }
+  },
   { id:'update-4', title:'Season 34 Battle Pass Review: Worth Your Gems?',
     tag:'Season Pass', date:'June 20, 2026', icon:'🎟️',
-    excerpt:'New Battle Pass with exclusive skins and fresh brawler. We crunch the numbers to tell you if this season pass delivers real value.' }
+    excerpt:'New Battle Pass with exclusive skins and fresh brawler. We crunch the numbers to tell you if this season pass delivers real value.',
+    content: {
+      intro: 'Season 34 brings the "Chrono Crash" theme, headlined by Finx, two new skins, and a mountain of coins, power points, and credits. We break down whether the pass is worth your gems or if you should save for the next season.',
+      hero: 'Season 34: Chrono Crash Battle Pass Value Breakdown',
+      sections: [
+        { title:'What You Get', items:[
+          'Free Track: 1,500 coins, 500 power points, 2 big boxes, and a profile icon.',
+          'Premium Track: 5,000 coins, 2,500 power points, 120 credits, 60 gems (refund), exclusive Finx skin, and two epic skins.',
+          'Premium Plus: Everything in Premium plus immediate +10 tiers and a legendary skin for Gale.',
+          'Exclusive Cosmetics: "Temporal Finx" skin, "Glacial Gale" skin, and "Neon Surge" skin.'
+        ]},
+        { title:'Gem Value Analysis', items:[
+          'Premium Pass costs 349 gems. Direct value of resources is roughly 700+ gems.',
+          'If you complete all tiers, you get 60 gems back, effectively reducing cost to 289 gems.',
+          'Exclusive skins would cost 80–150 gems each if sold separately.',
+          'Best value for players who play at least 4 days per week.'
+        ]},
+        { title:'New Brawler Finx Access', items:[
+          'Finx is unlocked at tier 30 of the free pass.',
+          'Premium pass grants immediate Finx unlock at tier 1 and a +10 tier boost.',
+          'Power points for Finx are heavily weighted in the premium track.',
+          'If you want to max Finx quickly, the premium pass is the fastest route.'
+        ]},
+        { title:'Verdict', items:[
+          'Casual Players: Skip Premium unless you love the cosmetics. Free track is generous.',
+          'Active Players: Premium is a no-brainer. Resource value alone is worth it.',
+          'Competitive Players: Premium Plus is worth it for the instant Finx and Gale skin if you plan to main them.',
+          'Whales: The legendary Gale skin is the main draw; everything else is bonus.'
+        ]}
+      ],
+      stats: [
+        { label:'Cost', value:'349 Gems' },
+        { label:'Gem Refund', value:'60' },
+        { label:'Total Value', value:'~700 Gems' },
+        { label:'Skins', value:'3 Exclusive' }
+      ],
+      conclusion: 'Season 34 is a solid pass with real value, especially if you want to unlock and level Finx. The exclusive skins are high quality, and the gem refund softens the price. Unless you barely play, this is a recommended purchase.',
+      author: 'BrawlMeta Economy Team',
+      readTime: '4 min read'
+    }
+  }
 ];
 
 // ============================================

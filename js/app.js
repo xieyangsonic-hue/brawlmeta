@@ -153,6 +153,45 @@ function animateHPBars() {
 }
 
 // ============================================
+// BRAWLER AVATAR SILHOUETTES
+// Original stylized silhouettes inspired by each brawler's theme.
+// No copyrighted game art is used; all graphics are custom SVG paths.
+// ============================================
+const AVATAR_SVGS = {
+  // Featured / visible brawlers
+  kenji: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M30 38 Q50 24 70 38 L75 54 Q50 72 25 54 Z"/><path d="M36 46 L64 46" stroke="#000" stroke-width="3" fill="none" opacity="0.25"/><path d="M22 64 L40 45 L60 45 L78 64" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/></svg>`,
+  surge: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M25 35 L75 35 L70 65 L30 65 Z"/><path d="M35 30 L40 20 L45 30" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M55 30 L60 20 L65 30" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M38 48 L62 48" stroke="#000" stroke-width="4" opacity="0.25"/></svg>`,
+  cordelius: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M20 55 Q50 10 80 55 Q65 75 50 75 Q35 75 20 55 Z"/><circle cx="35" cy="45" r="4" opacity="0.3"/><circle cx="55" cy="38" r="3" opacity="0.3"/><circle cx="68" cy="50" r="5" opacity="0.3"/></svg>`,
+  gale: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M25 40 Q50 20 75 40 L70 65 Q50 80 30 65 Z"/><path d="M35 55 Q50 65 65 55" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M30 75 Q50 85 70 75" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>`,
+  spike: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M35 30 Q50 20 65 30 L65 70 Q50 80 35 70 Z"/><path d="M25 40 L30 50 L20 55 L30 60 L25 70" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M75 40 L70 50 L80 55 L70 60 L75 70" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  crow: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M30 35 L70 35 L60 60 L40 60 Z"/><path d="M50 60 L50 75" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M35 45 L65 45" stroke="#000" stroke-width="3" opacity="0.25"/></svg>`,
+  amber: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M35 50 Q50 25 65 50 Q75 60 65 70 Q50 80 35 70 Q25 60 35 50 Z"/><path d="M42 35 Q50 15 58 35" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M40 55 L60 55" stroke="#000" stroke-width="3" opacity="0.25"/></svg>`,
+  sandy: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M28 40 Q50 25 72 40 L68 65 Q50 78 32 65 Z"/><path d="M40 52 Q50 58 60 52" fill="none" stroke="#000" stroke-width="3" opacity="0.25" stroke-linecap="round"/><path d="M22 72 Q50 88 78 72" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>`,
+  lou: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M35 35 L65 35 L60 55 L40 55 Z"/><path d="M30 55 L70 55 L60 85 L40 85 Z"/><path d="M38 45 L62 45" stroke="#000" stroke-width="3" opacity="0.25"/></svg>`,
+  max: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M30 38 Q50 28 70 38 L65 62 Q50 72 35 62 Z"/><path d="M35 30 L40 20 L45 30" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M55 30 L60 20 L65 30" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M38 48 L62 48" stroke="#000" stroke-width="4" opacity="0.25"/></svg>`,
+  gene: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M35 30 Q50 25 65 30 L55 60 L45 60 Z"/><path d="M40 60 Q30 75 40 85" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M60 60 Q70 75 60 85" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M50 60 L50 75" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>`,
+  byron: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M35 30 L65 30 L60 75 L40 75 Z"/><path d="M42 45 L58 45" stroke="#000" stroke-width="3" opacity="0.25"/><path d="M45 60 L55 60" stroke="#000" stroke-width="3" opacity="0.25"/></svg>`,
+  otis: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M35 35 Q50 25 65 35 Q70 50 60 60 Q50 70 40 60 Q30 50 35 35 Z"/><path d="M25 60 Q20 75 30 80" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M75 60 Q80 75 70 80" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>`,
+  leon: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M30 35 Q50 25 70 35 L65 60 Q50 70 35 60 Z"/><path d="M40 50 Q50 55 60 50" fill="none" stroke="#000" stroke-width="3" opacity="0.25" stroke-linecap="round"/><path d="M72 45 L85 40" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>`,
+
+  // Role-based fallbacks
+  assassin: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M30 35 Q50 22 70 35 L65 58 Q50 68 35 58 Z"/><path d="M22 62 L42 45" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M78 62 L58 45" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>`,
+  fighter: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M35 30 L65 30 L60 55 L40 55 Z"/><circle cx="40" cy="70" r="10"/><circle cx="60" cy="70" r="10"/></svg>`,
+  'damage dealer': `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M50 20 L60 40 L80 50 L60 60 L50 80 L40 60 L20 50 L40 40 Z"/><circle cx="50" cy="50" r="12" fill="none" stroke="#fff" stroke-width="4"/></svg>`,
+  marksman: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><circle cx="50" cy="50" r="30" fill="none" stroke="#fff" stroke-width="6"/><circle cx="50" cy="50" r="12" fill="none" stroke="#fff" stroke-width="4"/><path d="M50 10 L50 25 M50 75 L50 90 M10 50 L25 50 M75 50 L90 50" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>`,
+  support: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M50 20 L60 40 L80 40 L65 55 L70 75 L50 62 L30 75 L35 55 L20 40 L40 40 Z"/><circle cx="50" cy="50" r="8" opacity="0.25"/></svg>`,
+  controller: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M25 50 Q50 20 75 50 Q50 80 25 50 Z" fill="none" stroke="#fff" stroke-width="6"/><path d="M50 30 L50 70" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M30 50 L70 50" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>`,
+  tank: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><path d="M25 35 L75 35 L70 70 L30 70 Z"/><path d="M35 45 L65 45" stroke="#000" stroke-width="3" opacity="0.25"/></svg>`,
+  thrower: `<svg viewBox="0 0 100 100" class="brawler-avatar-svg" fill="#fff"><circle cx="50" cy="55" r="22"/><path d="M50 33 L50 15" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M30 25 Q50 5 70 25" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>`
+};
+
+function getBrawlerAvatar(id, role) {
+  const roleKey = role.toLowerCase();
+  const svg = AVATAR_SVGS[id] || AVATAR_SVGS[roleKey] || AVATAR_SVGS.fighter;
+  return svg;
+}
+
+// ============================================
 // DOM READY
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -318,7 +357,7 @@ function renderHeroTierShowcase() {
               <span class="hero-tier-avatar" style="background:${b.color};"
                     title="${b.name} — ${b.role}"
                     onclick="openBrawlerDetail('${b.id}')">
-                ${b.name[0]}
+                ${getBrawlerAvatar(b.id, b.role)}
               </span>
             `).join('')}
           </div>
@@ -352,7 +391,7 @@ function renderTierPreview() {
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
             ${brawlersInTier.map(b => `
               <span class="brawler-chip" onclick="openBrawlerDetail('${b.id}')" title="${b.name} — ${b.role}">
-                <span class="brawler-chip-img" style="background:${b.color};color:#fff;">${b.name[0]}</span>
+                <span class="brawler-chip-img" style="background:${b.color};color:#fff;">${getBrawlerAvatar(b.id, b.role)}</span>
                 ${b.name}
               </span>
             `).join('')}
@@ -385,7 +424,7 @@ function renderBrawlerCards() {
       <div class="brawler-card-avatar-container">
         <div class="brawler-card-avatar-ring"></div>
         <div class="brawler-card-avatar" style="background:linear-gradient(135deg, ${b.color}, ${b.color}dd);color:#fff;">
-          ${b.name[0]}
+          ${getBrawlerAvatar(b.id, b.role)}
         </div>
       </div>
       <div class="brawler-card-name">${b.name}</div>
@@ -410,7 +449,7 @@ function renderNewsCards() {
   if (!container) return;
 
   container.innerHTML = UPDATES.map((u, i) => `
-    <article class="news-card reveal reveal-delay-${i + 1}">
+    <article class="news-card reveal reveal-delay-${i + 1}" onclick="openNewsDetail('${u.id}')">
       <div class="news-card-image">${u.icon}</div>
       <div class="news-card-body">
         <span class="news-card-tag">${u.tag}</span>
@@ -420,6 +459,88 @@ function renderNewsCards() {
       </div>
     </article>
   `).join('');
+}
+
+// ============================================
+// NEWS DETAIL MODAL
+// ============================================
+function openNewsDetail(newsId) {
+  const article = UPDATES.find(u => u.id === newsId);
+  if (!article || !article.content) return;
+
+  const modal = document.createElement('div');
+  modal.className = 'modal-overlay';
+  modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+
+  const sectionsHtml = article.content.sections.map(section => `
+    <div class="modal-section">
+      <h4>${section.title}</h4>
+      <ul class="guide-list">
+        ${section.items.map(item => {
+          const [label, detail] = item.split(' — ');
+          return `<li><strong>${label}</strong>${detail ? ' — ' + detail : ''}</li>`;
+        }).join('')}
+      </ul>
+    </div>
+  `).join('');
+
+  const statsHtml = article.content.stats.map(s => `
+    <div class="detail-stat">
+      <div class="detail-stat-value">${s.value}</div>
+      <div class="detail-stat-label">${s.label}</div>
+    </div>
+  `).join('');
+
+  modal.innerHTML = `
+    <div class="modal news-modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div class="modal-brawler-info">
+          <div class="modal-avatar news-avatar" style="background:linear-gradient(135deg, var(--accent-purple), var(--accent-blue));color:#fff;">
+            ${article.icon}
+          </div>
+          <div>
+            <h3>${article.title}</h3>
+            <span style="font-size:0.85rem;color:var(--text-muted);font-weight:600;">${article.tag} · ${article.date}</span>
+          </div>
+        </div>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <p style="color:var(--text-secondary);margin-bottom:24px;line-height:1.7;font-size:1rem;">
+          ${article.content.intro}
+        </p>
+
+        <div class="modal-section news-hero">
+          <h4>${article.content.hero}</h4>
+        </div>
+
+        ${sectionsHtml}
+
+        <div class="modal-section">
+          <h4>📊 Key Numbers</h4>
+          <div class="detail-stats-grid">
+            ${statsHtml}
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h4>📝 Takeaway</h4>
+          <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:18px;color:var(--accent-gold);font-weight:500;line-height:1.6;">
+            ${article.content.conclusion}
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.8rem;">
+          <span>By ${article.content.author}</span>
+          <span>${article.content.readTime}</span>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+  document.body.style.overflow = 'hidden';
 }
 
 // ============================================
@@ -509,7 +630,7 @@ function renderTierList() {
           ${brawlersInTier.map(b => `
             <div class="tier-brawler" onclick="openBrawlerDetail('${b.id}')">
               <span class="tier-brawler-avatar" style="background:linear-gradient(135deg, ${b.color}, ${b.color}dd);color:#fff;">
-                ${b.name[0]}
+                ${getBrawlerAvatar(b.id, b.role)}
               </span>
               ${b.name}
               <span class="rarity-${b.rarity.replace(/\s+/g, '-').toLowerCase()}" style="font-size:0.7rem;opacity:0.7;">
@@ -559,7 +680,7 @@ function openBrawlerDetail(brawlerId) {
       <div class="modal-header">
         <div class="modal-brawler-info">
           <div class="modal-avatar" style="background:linear-gradient(135deg, ${brawler.color}, ${brawler.color}dd);color:#fff;">
-            ${brawler.name[0]}
+            ${getBrawlerAvatar(brawler.id, brawler.role)}
           </div>
           <div>
             <h3>${brawler.name}</h3>

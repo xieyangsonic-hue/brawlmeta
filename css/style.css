@@ -1573,6 +1573,37 @@ h4 { font-size: 1.1rem; }
 }
 
 /* ============================================
+   AVATAR SILHOUETTES
+   ============================================ */
+.brawler-avatar-svg {
+  width: 62%;
+  height: 62%;
+  display: block;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.25));
+  pointer-events: none;
+}
+
+.hero-tier-avatar .brawler-avatar-svg {
+  width: 68%;
+  height: 68%;
+}
+
+.brawler-chip-img .brawler-avatar-svg {
+  width: 60%;
+  height: 60%;
+}
+
+.tier-brawler-avatar .brawler-avatar-svg {
+  width: 64%;
+  height: 64%;
+}
+
+.modal-avatar .brawler-avatar-svg {
+  width: 60%;
+  height: 60%;
+}
+
+/* ============================================
    GUIDE MODAL
    ============================================ */
 .guide-modal {
@@ -1613,6 +1644,40 @@ h4 { font-size: 1.1rem; }
 .guide-list li strong {
   color: var(--text-primary);
   font-weight: 600;
+}
+
+/* ============================================
+   NEWS MODAL
+   ============================================ */
+.news-modal {
+  max-width: 760px;
+}
+
+.news-avatar {
+  font-size: 1.8rem;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+}
+
+.news-hero {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(41, 121, 255, 0.08));
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+}
+
+.news-hero h4 {
+  color: var(--accent-purple);
+  font-size: 1.15rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.news-card {
+  cursor: pointer;
+}
+
+.news-card:hover .news-card-title {
+  color: var(--accent-purple);
 }
 
 /* ============================================
