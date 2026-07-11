@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete Brawl Stars Tier List July 2026 — See which brawlers are S, A, B, C, D tier in the current meta. Updated weekly based on competitive Power League and tournament data.">
+  <title>Brawl Stars Tier List July 2026 — All Brawlers Ranked | BrawlMeta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <canvas id="particlesCanvas"></canvas>
+
+  <!-- Header -->
+  <header class="header" id="mainHeader">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">⚡</span>
+        Brawl<span class="logo-accent">Meta</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="tier-list.html" class="nav-link active">Tier List</a>
+        <a href="index.html#brawlers" class="nav-link">Brawlers</a>
+        <a href="index.html#guides" class="nav-link">Guides</a>
+        <a href="#full-list" class="nav-link nav-cta">Full Rankings</a>
+      </nav>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Decorative gems -->
+    <span class="gem-decoration" style="position:fixed;top:18%;right:8%;z-index:0;"></span>
+    <span class="gem-decoration gold small delay" style="position:fixed;bottom:25%;left:5%;z-index:0;"></span>
+
+    <!-- Tier List Hero -->
+    <section class="tier-list-page">
+      <div class="container">
+        <h1 style="text-align:center;margin-bottom:8px;">
+          Brawl Stars <span class="gradient-text-purple">Tier List</span>
+        </h1>
+        <p style="text-align:center;color:var(--text-secondary);margin-bottom:6px;font-size:1.05rem;">
+          All brawlers ranked by competitive viability
+        </p>
+        <p style="text-align:center;color:var(--text-muted);font-size:0.84rem;margin-bottom:44px;">
+          July 2026 &middot; Based on Power League pick/ban rates &amp; tournament results
+        </p>
+
+        <!-- Search -->
+        <div class="search-container">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="brawlerSearch"
+                 placeholder="Search brawlers by name, role, or rarity...">
+        </div>
+
+        <!-- Tier Descriptions -->
+        <div id="tierDescriptions" style="max-width:720px;margin:0 auto 44px;"></div>
+
+        <!-- Full Tier List -->
+        <div class="tier-list-container" id="tierList"></div>
+      </div>
+    </section>
+
+    <!-- How We Rank -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <h2 class="section-title">📋 How We Rank</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
+          <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:all var(--transition-normal);" class="reveal">
+            <div style="font-size:2rem;margin-bottom:14px;">🏆</div>
+            <h4 style="margin-bottom:8px;">Competitive Data</h4>
+            <p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.65;">
+              We analyze Power League pick rates, win rates, and ban rates across all skill levels to determine each brawler's competitive strength.
+            </p>
+          </div>
+          <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:all var(--transition-normal);" class="reveal reveal-delay-1">
+            <div style="font-size:2rem;margin-bottom:14px;">🎮</div>
+            <h4 style="margin-bottom:8px;">Pro Play Analysis</h4>
+            <p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.65;">
+              Tournament results and pro player tier lists from Monthly Finals and the World Championship heavily influence our top-tier rankings.
+            </p>
+          </div>
+          <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:all var(--transition-normal);" class="reveal reveal-delay-2">
+            <div style="font-size:2rem;margin-bottom:14px;">🔄</div>
+            <h4 style="margin-bottom:8px;">Weekly Updates</h4>
+            <p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.65;">
+              Meta shifts happen fast. We refresh our tier list every week to reflect balance changes, new brawler releases, and emerging strategies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-section reveal">
+          <h2>Want In-Depth <span class="gradient-text">Brawler Guides</span>?</h2>
+          <p>Tap any brawler in the tier list to see detailed stats, best builds, counter picks, and pro strategy tips.</p>
+          <a href="index.html#brawlers" class="btn btn-primary">
+            <span>🦸</span> Browse All Brawlers
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">⚡</span>
+            Brawl<span class="logo-accent">Meta</span>
+          </div>
+          <p>The ultimate Brawl Stars strategy resource. Tier lists, brawler guides, and meta analysis by the community, for the community.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="tier-list.html">Tier List</a>
+          <a href="index.html#brawlers">All Brawlers</a>
+          <a href="index.html#guides">Strategy Guides</a>
+          <a href="index.html#updates">Latest Updates</a>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <a href="#">Discord</a>
+          <a href="#">Twitter / X</a>
+          <a href="#">Reddit</a>
+          <a href="#">YouTube</a>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="#">About BrawlMeta</a>
+          <a href="#">Methodology</a>
+          <a href="#">Contributors</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 BrawlMeta. Unofficial fan site. Not affiliated with Supercell.</span>
+        <span>Brawl Stars is a trademark of Supercell Oy.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
