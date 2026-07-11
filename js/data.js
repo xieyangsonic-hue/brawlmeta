@@ -464,22 +464,176 @@ const GAME_MODES = [
 const GUIDES = [
   { id:'tier-list-guide', title:'Complete Tier List Guide: How Rankings Work',
     icon:'📊', iconClass:'purple',
-    description:'Understand what each tier means, our ranking methodology, and how to apply tier lists to climb the ladder effectively.' },
+    description:'Understand what each tier means, our ranking methodology, and how to apply tier lists to climb the ladder effectively.',
+    content: {
+      intro: 'BrawlMeta tier lists are built from competitive Power League data, monthly finals, and tournament results — not just “feel.” Use them as a starting point, not a rulebook.',
+      sections: [
+        { title:'Tier Meanings', items:[
+          'S Tier — Meta Defining. These brawlers shape every draft. Must pick or ban in most situations.',
+          'A Tier — Very Strong. Reliable across many maps and modes; fit most team compositions.',
+          'B Tier — Viable. Strong in the right hands or on specific maps, but not universal.',
+          'C Tier — Situational. Only worth picking when the map, mode, or enemy comp heavily favors them.',
+          'D Tier — Needs Buff. Outclassed by higher-tier picks. Avoid unless you are extremely comfortable.'
+        ]},
+        { title:'How We Rank (July 2026)', items:[
+          'Power League pick/ban rates across all ranks and above Diamond 3.',
+          'Monthly Finals and World Championship qualifier results.',
+          'Win rate data on the current competitive map pool.',
+          'Input from top pro players and coaches.'
+        ]},
+        { title:'How to Use a Tier List', items:[
+          'Do not blind-pick S-tier brawlers. Map and team synergy matter more than raw power.',
+          'Consider your comfort. A high-tier brawler you cannot play is worse than a lower-tier main.',
+          'Watch the “Rising Stars” and “Falling Off” sections weekly to catch meta shifts early.'
+        ]}
+      ],
+      tips: ['Tier lists are snapshots, not guarantees. Patch changes and new maps can move a brawler up or down quickly.'],
+      updateNote: 'Current snapshot: July 2026 — Kenji, Surge, Cordelius, and Gale headline S-tier.'
+    }
+  },
   { id:'beginner-guide', title:'Beginner Guide: Your First 100 Trophies',
     icon:'🎓', iconClass:'blue',
-    description:'New to Brawl Stars? Learn which brawlers to unlock first, basic strategies, and trophy push tips for beginners.' },
+    description:'New to Brawl Stars? Learn which brawlers to unlock first, basic strategies, and trophy push tips for beginners.',
+    content: {
+      intro: 'Welcome to the arena. Your first 100 trophies are about learning mechanics, not chasing the meta. Focus on one or two brawlers and master the basics before expanding your roster.',
+      sections: [
+        { title:'Best Starting Brawlers', items:[
+          'Shelly — Easy to use, strong close-range, and great for learning cover positioning.',
+          'Nita — Her bear teaches you zone control and pressure without needing perfect aim.',
+          'Colt — Teaches you to aim accurately and punish enemies in open lanes.'
+        ]},
+        { title:'Core Mechanics to Master', items:[
+          'Stick to cover. Never stand in the open unless you are the one applying pressure.',
+          'Control your ammo. Reloading at the wrong time costs you duels.',
+          'Use your Super intentionally. Wasting it is the #1 beginner mistake.',
+          'Pass the ball in Brawl Ball, group in Hot Zone, and protect the gem carrier in Gem Grab.'
+        ]},
+        { title:'Trophy Push Tips', items:[
+          'Play the modes where your current brawler is strongest.',
+          'Avoid Showdown until you understand bush control and cube advantage.',
+          'Watch the kill feed and retreat when you are outnumbered.'
+        ]}
+      ],
+      tips: ['Avoid chasing enemies into their spawn. Patience wins more trophies than aggression.'],
+      updateNote: 'Beginner-friendly picks in July 2026: Shelly, Nita, and Poco are forgiving and strong on starter maps.'
+    }
+  },
   { id:'team-comp', title:'Team Composition: Building Winning Lineups',
     icon:'🤝', iconClass:'green',
-    description:'Master team building. Learn about roles, synergy, and counter-picking for competitive 3v3 modes.' },
+    description:'Master team building. Learn about roles, synergy, and counter-picking for competitive 3v3 modes.',
+    content: {
+      intro: 'A good team comp is greater than the sum of its parts. In Brawl Stars, balance between damage, control, and sustain is the key to winning 3v3 modes.',
+      sections: [
+        { title:'Core Roles', items:[
+          'Tank — Absorbs damage and controls space. Examples: Rosa, Frank, El Primo.',
+          'Damage Dealer — Applies consistent pressure and secures kills. Examples: Surge, Colt, Brock.',
+          'Support / Controller — Provides utility, healing, or crowd control. Examples: Gale, Byron, Sandy, Max.'
+        ]},
+        { title:'Proven Formulas', items:[
+          '1 Tank + 1 Damage + 1 Support — The safest starting template.',
+          'Double Damage + 1 Controller — High burst for Heist and Bounty.',
+          '1 Initiator + 1 Follow-up + 1 Finisher — Assassin-style comps for Knockout.'
+        ]},
+        { title:'July 2026 Meta Comps', items:[
+          'Brawl Ball: Kenji + Gale + Shelly — engage, reset, and break walls.',
+          'Gem Grab: Surge + Max + Byron — sustain, poke, and late-game scaling.',
+          'Hot Zone: Spike + Lou + Sandy — area denial and zone control.',
+          'Knockout: Cordelius + Otis + Gene — isolation picks and silence.'
+        ]}
+      ],
+      tips: ['Draft for the map first, then counter the enemy. A great comp on the wrong map still loses.'],
+      updateNote: 'Speed boost from Max and crowd control from Gale are the most valuable utilities in the current meta.'
+    }
+  },
   { id:'upgrade-guide', title:'Best Gadgets, Star Powers & Gears',
     icon:'⚙️', iconClass:'orange',
-    description:'Complete breakdown of optimal builds for every brawler. Never waste resources on wrong upgrades again.' },
+    description:'Complete breakdown of optimal builds for every brawler. Never waste resources on wrong upgrades again.',
+    content: {
+      intro: 'Your brawler is only as strong as the build around it. Gadgets, Star Powers, and Gears can turn a decent pick into a dominant one. Here is how to spend your coins and tokens wisely.',
+      sections: [
+        { title:'Upgrade Priority', items:[
+          'Level 7 — Unlock Gadget. This is usually the single biggest power spike.',
+          'Level 9 — Unlock Star Power. Most Star Powers define how the brawler plays.',
+          'Level 11 — Unlock Gears. Pick Damage, Speed, or Shield based on role.'
+        ]},
+        { title:'Gear Recommendations by Role', items:[
+          'Assassins — Speed + Shield to close gaps and survive burst.',
+          'Tanks — Health + Speed to engage and escape sticky situations.',
+          'Damage Dealers — Damage + Reload to maximize DPS.',
+          'Supports / Controllers — Shield + Speed to stay alive and reposition.'
+        ]},
+        { title:'Meta Builds (July 2026)', items:[
+          'Kenji — Smoke Bomb | Shadow Step | Damage + Shield',
+          'Surge — Power Shield | Serve Ice Cold | Damage + Speed',
+          'Gale — Twister | Blustery Blow | Speed + Shield',
+          'Byron — Booster Shots | Malaise | Shield + Damage',
+          'Max — Phase Shifter | Run n Gun | Damage + Speed'
+        ]}
+      ],
+      tips: ['Do not spread resources evenly. Max out your main 3–4 brawlers before leveling alts.'],
+      updateNote: 'Gadget-first unlocks are recommended in the current meta because most game-changing plays come from gadgets.'
+    }
+  },
   { id:'counter-guide', title:'Ultimate Counter Guide: Who Beats Who',
     icon:'⚔️', iconClass:'red',
-    description:'Learn every counter relationship. Know when to pick and when to ban in Power League.' },
+    description:'Learn every counter relationship. Know when to pick and when to ban in Power League.',
+    content: {
+      intro: 'Counter-picking is what separates casual players from Power League climbers. If you understand the rock-paper-scissors of Brawl Stars, you can win matchups before the game even starts.',
+      sections: [
+        { title:'The Counter Triangle', items:[
+          'Assassins beat Throwers — Throwers cannot escape once an assassin closes the gap.',
+          'Throwers beat Tanks — Tanks cannot approach through endless area denial.',
+          'Tanks beat Assassins — High HP and close-range burst shut down dive attempts.',
+          'Marksmen beat low-mobility targets — Range punishes brawlers who cannot close gaps.',
+          'Controllers disrupt everyone — Gale, Otis, and Sandy can win neutral game against multiple roles.'
+        ]},
+        { title:'Specific Counter Picks', items:[
+          'Otis counters Kenji and Mortis with silence.',
+          'Gale counters tanks and assassins with knockback and Twister.',
+          'Crow counters healers and tanks with poison and healing reduction.',
+          'Lou counters tanks with freeze.',
+          'Colette counters high-HP tanks with percent damage.'
+        ]},
+        { title:'Ban Strategy', items:[
+          'Ban the brawler that ruins your intended comp.',
+          'Ban comfort picks your enemy is likely to main.',
+          'Save your last pick for a counter if you have the flexibility.'
+        ]}
+      ],
+      tips: ['Counter picks only work if you can play them. Do not pick a hard counter you have never practiced.'],
+      updateNote: 'In July 2026, Otis and Gale are the most flexible counters because they disrupt the dominant assassin meta.'
+    }
+  },
   { id:'map-guide', title:'Map Strategy: Every Rotation Covered',
     icon:'🗺️', iconClass:'gold',
-    description:'Detailed strategies for each map. Learn flank routes, defense positions, and optimal picks.' }
+    description:'Detailed strategies for each map. Learn flank routes, defense positions, and optimal picks.',
+    content: {
+      intro: 'Every map rewards different strengths. Learning rotations, lane assignments, and power positions is the fastest way to improve your win rate in 3v3 modes.',
+      sections: [
+        { title:'Map Types', items:[
+          'Open Maps — Long-range marksmen and snipers dominate. Prioritize Piper, Brock, Bea.',
+          'Walled Maps — Throwers and wall-bouncers like Rico and Barley excel.',
+          'Mid-Focused Maps — Control the center with tanks and area denial.',
+          'Wide Maps — Flank routes matter; use fast assassins and controllers.'
+        ]},
+        { title:'Lane Roles', items:[
+          'Center / Control — Holds mid, zones enemies, and gathers gems/zones.',
+          'Flank — Applies pressure from the side and punishes rotations.',
+          'Support / Backline — Pokes from safety, heals, or covers retreat paths.'
+        ]},
+        { title:'Mode-Specific Map Tips', items:[
+          'Gem Grab: Never push mid with gems. Rotate back and let the carrier hide.',
+          'Brawl Ball: Break the enemy goal walls, then use the open lane to score.',
+          'Heist: Split push when possible. One distraction can win the game.',
+          'Bounty: Stay alive. A single death with stars swings the entire match.',
+          'Hot Zone: Focus one zone at a time. Splitting rarely works.',
+          'Knockout: Stick together. Never take a 1v3 duel.'
+        ]}
+      ],
+      tips: ['Memorize the best bush positions and retreat routes on each map. Map knowledge is free wins.'],
+      updateNote: 'July 2026 competitive map pool favors controllers and area denial. Lou, Spike, and Sandy are top picks on mid-heavy maps.'
+    }
+  }
 ];
 
 // ============================================

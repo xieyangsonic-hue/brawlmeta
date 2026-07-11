@@ -185,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderTierList();
   renderMetaSummary();
   setupBrawlerModals();
+  setupGuideModals();
   setupSearch();
   initScrollReveal();
 
@@ -429,7 +430,7 @@ function renderGuideCards() {
   if (!container) return;
 
   container.innerHTML = GUIDES.map((g, i) => `
-    <div class="guide-card reveal reveal-delay-${i + 1}">
+    <div class="guide-card reveal reveal-delay-${i + 1}" onclick="openGuideDetail('${g.id}')">
       <div class="guide-card-icon ${g.iconClass}">${g.icon}</div>
       <h4>${g.title}</h4>
       <p>${g.description}</p>
@@ -673,6 +674,74 @@ function closeModal() {
     modal.remove();
     document.body.style.overflow = '';
   }
+}
+
+// ============================================
+// GUIDE DETAIL MODAL
+// ============================================
+function setupGuideModals() {}
+
+function openGuideDetail(guideId) {
+  const guide = GUIDES.find(g => g.id === guideId);
+  if (!guide || !guide.content) return;
+
+  const modal = document.createElement('div');
+  modal.className = 'modal-overlay';
+  modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+
+  const sectionsHtml = guide.content.sections.map(section => `
+    <div class="modal-section">
+      <h4>${section.title}</h4>
+      <ul class="guide-list">
+        ${section.items.map(item => {
+          const [label, detail] = item.split(' — ');
+          return `<li><strong>${label}</strong>${detail ? ' — ' + detail : ''}</li>`;
+        }).join('')}
+      </ul>
+    </div>
+  `).join('');
+
+  modal.innerHTML = `
+    <div class="modal guide-modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div class="modal-brawler-info">
+          <div class="modal-avatar guide-avatar" style="background:linear-gradient(135deg, var(--accent-${guide.iconClass === 'purple' ? 'purple' : guide.iconClass === 'blue' ? 'blue' : guide.iconClass === 'green' ? 'green' : guide.iconClass === 'orange' ? 'orange' : guide.iconClass === 'red' ? 'red' : 'gold'}), transparent);color:#fff;">
+            ${guide.icon}
+          </div>
+          <div>
+            <h3>${guide.title}</h3>
+            <span style="font-size:0.85rem;color:var(--text-muted);font-weight:600;">Strategy Guide · July 2026</span>
+          </div>
+        </div>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <p style="color:var(--text-secondary);margin-bottom:24px;line-height:1.7;">
+          ${guide.content.intro}
+        </p>
+
+        ${sectionsHtml}
+
+        <div class="modal-section">
+          <h4>💡 Pro Tip</h4>
+          <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:18px;color:var(--accent-gold);font-weight:500;line-height:1.6;">
+            ${guide.content.tips[0]}
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h4>🗓️ Current Meta Note</h4>
+          <p style="color:var(--text-secondary);line-height:1.7;">
+            ${guide.content.updateNote}
+          </p>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+  document.body.style.overflow = 'hidden';
 }
 
 // ============================================

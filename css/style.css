@@ -79,7 +79,7 @@ body {
   position: relative;
 }
 
-/* === Dark Pattern Background === */
+/* === Dark Pattern Background (CSS-only, no watermark) === */
 body::before {
   content: '';
   position: fixed;
@@ -88,8 +88,12 @@ body::before {
     radial-gradient(ellipse at 50% 0%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 50%, rgba(255, 213, 79, 0.04) 0%, transparent 50%),
     radial-gradient(ellipse at 20% 80%, rgba(244, 114, 182, 0.04) 0%, transparent 50%),
-    url('../images/A_seamless_dark_abstract_patte_2026-07-11T12-58-57.png');
-  background-size: 100% 100%, 100% 100%, 100% 100%, 400px 400px;
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 60px),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 60px),
+    radial-gradient(circle at 50% 50%, rgba(255,213,79,0.08) 0%, transparent 20%) 0 0 / 80px 80px,
+    radial-gradient(circle at 50% 50%, rgba(139,92,246,0.08) 0%, transparent 25%) 40px 40px / 80px 80px,
+    linear-gradient(180deg, #0a0e1a 0%, #02040c 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 60px 60px, 60px 60px, 80px 80px, 80px 80px, 100% 100%;
   pointer-events: none;
   z-index: 0;
   opacity: 0.6;
@@ -1566,6 +1570,49 @@ h4 { font-size: 1.1rem; }
   background: rgba(251, 146, 60, 0.1);
   border-color: rgba(251, 146, 60, 0.25);
   color: var(--accent-orange);
+}
+
+/* ============================================
+   GUIDE MODAL
+   ============================================ */
+.guide-modal {
+  max-width: 720px;
+}
+
+.guide-avatar {
+  font-size: 1.8rem;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+}
+
+.guide-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.guide-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.guide-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-purple);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+}
+
+.guide-list li strong {
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 /* ============================================
