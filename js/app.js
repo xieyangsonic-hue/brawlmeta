@@ -217,12 +217,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render all sections
   updateStatsBar();
   renderHeroTierShowcase();
+  renderHotTopics();
+  renderFAQ();
   renderTierPreview();
   renderBrawlerCards();
   renderNewsCards();
   renderGuideCards();
   renderTierList();
   renderMetaSummary();
+  renderModeBreakdown();
   setupBrawlerModals();
   setupGuideModals();
   setupSearch();
@@ -235,8 +238,8 @@ document.addEventListener('DOMContentLoaded', () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           animateCounter(document.getElementById('statBrawlers'), BRAWLERS.length, 1500);
+          animateCounter(document.getElementById('statTopics'), HOT_TOPICS.length, 1000);
           animateCounter(document.getElementById('statGuides'), GUIDES.length, 1200);
-          animateCounter(document.getElementById('statModes'), GAME_MODES.length, 1000);
           animateCounter(document.getElementById('statUpdates'), UPDATES.length, 800);
           obs.unobserve(entry.target);
         }
@@ -321,12 +324,12 @@ function createSparkle(x, y) {
 // ============================================
 function updateStatsBar() {
   const elBrawlers = document.getElementById('statBrawlers');
+  const elTopics = document.getElementById('statTopics');
   const elGuides = document.getElementById('statGuides');
-  const elModes = document.getElementById('statModes');
   const elUpdates = document.getElementById('statUpdates');
   if (elBrawlers) elBrawlers.textContent = '0';
+  if (elTopics) elTopics.textContent = '0';
   if (elGuides) elGuides.textContent = '0';
-  if (elModes) elModes.textContent = '0';
   if (elUpdates) elUpdates.textContent = '0';
 }
 
@@ -462,6 +465,85 @@ function renderNewsCards() {
 }
 
 // ============================================
+// HOT TOPICS GRID — Most Searched Community Questions
+// ============================================
+function renderHotTopics() {
+  const container = document.getElementById('hotTopicsGrid');
+  if (!container) return;
+
+  container.innerHTML = HOT_TOPICS.map((t, i) => `
+    <div class="hot-topic-card reveal reveal-delay-${i + 1}" style="border-left:3px solid ${t.color};">
+      <div class="hot-topic-header">
+        <span class="hot-topic-icon" style="background:${t.color}22;color:${t.color};">${t.icon}</span>
+        <span class="hot-topic-tag" style="background:${t.color}15;color:${t.color};">${t.tag}</span>
+      </div>
+      <h4 class="hot-topic-question">${t.question}</h4>
+      <p class="hot-topic-answer">${t.answer}</p>
+      <div class="hot-topic-related">
+        <span class="hot-topic-related-label">Key brawlers:</span>
+        ${t.relatedBrawlers.map(name => {
+          const b = BRAWLERS.find(x => x.name === name);
+          return `<span class="hot-topic-chip" onclick="event.stopPropagation();openBrawlerDetail('${b ? b.id : ''}')" style="background:${b ? b.color : '#666'}22;color:${b ? b.color : '#aaa'};border:1px solid ${b ? b.color : '#666'}33;">${name}</span>`;
+        }).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+// ============================================
+// FAQ GRID — Community Pain Points with Deep Answers
+// ============================================
+function renderFAQ() {
+  const container = document.getElementById('faqGrid');
+  if (!container) return;
+
+  container.innerHTML = FAQ_DATA.map((faq, i) => `
+    <div class="faq-item reveal reveal-delay-${Math.min(i + 1, 4)}">
+      <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open')">
+        <span class="faq-q-icon">Q</span>
+        <span>${faq.q}</span>
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-answer">
+        <p>${faq.a}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ============================================
+// MODE BREAKDOWN — Per-Mode Best Picks
+// ============================================
+function renderModeBreakdown() {
+  const container = document.getElementById('modeBreakdown');
+  if (!container || !META_SUMMARY.analysis || !META_SUMMARY.analysis.modeBreakdown) return;
+
+  container.innerHTML = `
+    <h3 style="font-size:1rem;color:var(--text-primary);margin-bottom:16px;font-weight:700;">
+      🎮 Best Picks by Game Mode
+    </h3>
+    <div class="mode-breakdown-grid">
+      ${META_SUMMARY.analysis.modeBreakdown.map(m => `
+        <div class="mode-card">
+          <div class="mode-card-icon">${GAME_MODES.find(g => g.name === m.mode)?.icon || '🎮'}</div>
+          <div class="mode-card-name">${m.mode}</div>
+          <div class="mode-card-picks">
+            ${m.top3.map(name => {
+              const b = BRAWLERS.find(x => x.name === name);
+              return `<span class="mode-pick-chip" onclick="openBrawlerDetail('${b ? b.id : ''}')" title="${m.tip}">
+                <span class="mode-pick-avatar" style="background:${b ? b.color : '#555'};color:#fff;">${getBrawlerAvatar(b ? b.id : '', b ? b.role : '')}</span>
+                ${name}
+              </span>`;
+            }).join('')}
+          </div>
+          <div class="mode-card-tip">💡 ${m.tip}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+// ============================================
 // NEWS DETAIL MODAL
 // ============================================
 function openNewsDetail(newsId) {
@@ -560,47 +642,58 @@ function renderGuideCards() {
 }
 
 // ============================================
-// META SUMMARY (HOMEPAGE)
+// META SUMMARY (HOMEPAGE) — Enhanced with Deep Analysis
 // ============================================
 function renderMetaSummary() {
   const container = document.getElementById('metaSummary');
   if (!container) return;
 
+  const analysis = META_SUMMARY.analysis;
+
   container.innerHTML = `
-    <p style="color:var(--text-secondary);line-height:1.75;">
-      ${META_SUMMARY.description}
-    </p>
+    <div style="margin-bottom:24px;">
+      <p style="color:var(--text-secondary);line-height:1.8;font-size:1rem;margin-bottom:16px;">
+        ${analysis.summary}
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        ${analysis.keyChanges.map(change => `
+          <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.15);border-radius:20px;font-size:0.82rem;color:var(--text-secondary);">
+            <span style="color:var(--accent-gold);">✦</span> ${change}
+          </span>
+        `).join('')}
+      </div>
+    </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;">
       <div>
-        <strong style="color:var(--tier-s);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;">
-          🔝 Top Picks
+        <strong style="color:var(--tier-s);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;display:flex;align-items:center;gap:6px;">
+          <span>🔝</span> Top Picks
         </strong>
         <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;">
           ${META_SUMMARY.topPicks.map(name => {
             const b = BRAWLERS.find(x => x.name === name);
-            return `<span class="brawler-chip" onclick="openBrawlerDetail('${b ? b.id : ''}')">${name}</span>`;
+            return `<span class="brawler-chip" onclick="openBrawlerDetail('${b ? b.id : ''}')" style="border-color:rgba(255,23,68,0.3);">${name}</span>`;
           }).join('')}
         </div>
       </div>
       <div>
-        <strong style="color:#69f0ae;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;">
-          📈 Rising Stars
+        <strong style="color:#69f0ae;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;display:flex;align-items:center;gap:6px;">
+          <span>📈</span> Rising Stars
         </strong>
         <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;">
           ${META_SUMMARY.risingStars.map(name => {
             const b = BRAWLERS.find(x => x.name === name);
-            return `<span class="brawler-chip" onclick="openBrawlerDetail('${b ? b.id : ''}')">${name}</span>`;
+            return `<span class="brawler-chip" onclick="openBrawlerDetail('${b ? b.id : ''}')" style="border-color:rgba(74,222,128,0.3);">${name}</span>`;
           }).join('')}
         </div>
       </div>
       <div>
-        <strong style="color:var(--tier-d);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;">
-          ⚠️ Falling Off
+        <strong style="color:var(--tier-d);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;display:flex;align-items:center;gap:6px;">
+          <span>⚠️</span> Falling Off
         </strong>
         <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;">
           ${META_SUMMARY.fallingOff.map(name => {
             const b = BRAWLERS.find(x => x.name === name);
-            return `<span class="brawler-chip" onclick="openBrawlerDetail('${b ? b.id : ''}')">${name}</span>`;
+            return `<span class="brawler-chip" onclick="openBrawlerDetail('${b ? b.id : ''}')" style="border-color:rgba(144,164,174,0.3);">${name}</span>`;
           }).join('')}
         </div>
       </div>

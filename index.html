@@ -35,18 +35,13 @@
   </header>
 
   <main>
-    <!-- Hero Section with Desert Arena Background -->
+    <!-- Hero Section — Compact, Data-Rich, Immediate Value -->
     <section class="hero">
-      <!-- Ground dust effect -->
       <div class="hero-ground"></div>
-
-      <!-- Gem decorations -->
       <span class="gem-decoration" style="top:18%;left:8%;"></span>
       <span class="gem-decoration gold" style="top:25%;right:12%;"></span>
       <span class="gem-decoration small" style="top:65%;left:15%;"></span>
       <span class="gem-decoration gold small delay" style="bottom:30%;right:8%;"></span>
-
-      <!-- Star decorations -->
       <span class="star-decoration" style="top:15%;right:25%;"></span>
       <span class="star-decoration small delay" style="bottom:40%;left:22%;"></span>
       <span class="star-decoration delay" style="top:50%;right:18%;"></span>
@@ -56,34 +51,40 @@
           <div class="hero-text">
             <div class="hero-badge">
               <span class="pulse-dot"></span>
-              LIVE META — July 2026
+              LIVE META — July 2026 · Updated Weekly
             </div>
             <h1>
-              Master <span class="gradient-text">Brawl Stars</span>
-              <span class="line2">Dominate Every Game</span>
+              Brawl Stars <span class="gradient-text">Meta Hub</span>
+              <span class="line2">Tier Lists · Counters · Builds</span>
             </h1>
-            <p>
-              The definitive Brawl Stars strategy hub. Pro-tier tier lists, in-depth brawler builds,
-              counter matchups, and weekly meta analysis — all in one place.
+            <p class="hero-subtitle">
+              Don't guess — <strong>know</strong> which brawlers to pick, who counters them, and how to build them. Data-driven analysis from Power League and tournament data.
             </p>
-            <div class="hero-buttons">
-              <a href="tier-list.html" class="btn btn-primary">
-                <span>📊</span> View Tier List
+            <!-- Quick-action mini cards directly in hero -->
+            <div class="hero-quick-actions" id="heroQuickActions">
+              <a href="#hot-topics" class="hero-action-card">
+                <span class="hero-action-icon">🎯</span>
+                <span class="hero-action-label">Counter Kenji?</span>
               </a>
-              <a href="#brawlers" class="btn btn-secondary">
-                <span>🦸</span> Browse Brawlers
+              <a href="#tiers" class="hero-action-card">
+                <span class="hero-action-icon">📊</span>
+                <span class="hero-action-label">Tier List</span>
+              </a>
+              <a href="#faq" class="hero-action-card">
+                <span class="hero-action-icon">❓</span>
+                <span class="hero-action-label">Pain Points</span>
+              </a>
+              <a href="#meta" class="hero-action-card">
+                <span class="hero-action-icon">🔥</span>
+                <span class="hero-action-label">Meta Analysis</span>
               </a>
             </div>
           </div>
           <div class="hero-visual">
-            <!-- Decorative gems around tier cards -->
             <span class="gem-decoration small gold" style="position:absolute;top:-15px;left:20px;"></span>
             <span class="gem-decoration small" style="position:absolute;bottom:-10px;right:20px;"></span>
             <span class="star-decoration small" style="position:absolute;top:50%;right:-25px;"></span>
-
-            <div class="hero-tier-showcase" id="heroTierShowcase">
-              <!-- JS rendered -->
-            </div>
+            <div class="hero-tier-showcase" id="heroTierShowcase"></div>
           </div>
         </div>
       </div>
@@ -94,35 +95,52 @@
       <div class="stats-bar reveal" id="statsBar">
         <div class="stat-item">
           <div class="stat-icon">🦸</div>
-          <div class="stat-number" id="statBrawlers">0</div>
+          <div class="stat-number gradient-text" id="statBrawlers">0</div>
           <div class="stat-label">Brawlers Analyzed</div>
         </div>
         <div class="stat-item">
-          <div class="stat-icon">📚</div>
-          <div class="stat-number" id="statGuides">0</div>
-          <div class="stat-label">Guide Categories</div>
+          <div class="stat-icon">🎯</div>
+          <div class="stat-number gradient-text" id="statTopics">0</div>
+          <div class="stat-label">Hot Topics Covered</div>
         </div>
         <div class="stat-item">
-          <div class="stat-icon">🎮</div>
-          <div class="stat-number" id="statModes">0</div>
-          <div class="stat-label">Game Modes Covered</div>
+          <div class="stat-icon">📚</div>
+          <div class="stat-number gradient-text" id="statGuides">0</div>
+          <div class="stat-label">Strategy Guides</div>
         </div>
         <div class="stat-item">
           <div class="stat-icon">🔄</div>
-          <div class="stat-number" id="statUpdates">0</div>
-          <div class="stat-label">Weekly Meta Updates</div>
+          <div class="stat-number gradient-text" id="statUpdates">0</div>
+          <div class="stat-label">Weekly Updates</div>
         </div>
       </div>
     </section>
 
-    <!-- Current Meta -->
-    <section class="section" id="meta">
+    <!-- 🔥 Hot Topics — Highest Community Interest -->
+    <section class="section" id="hot-topics">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>🔥</span> Hot Now
+          <span style="font-size:0.82rem;color:var(--accent-red);font-weight:700;background:rgba(255,23,68,0.12);padding:3px 12px;border-radius:20px;">Trending</span>
+        </div>
+        <p class="section-subtitle reveal">The most searched questions in the Brawl Stars community right now. Quick answers, then dive deeper.</p>
+        <div class="hot-topics-grid" id="hotTopicsGrid"></div>
+      </div>
+    </section>
+
+    <!-- 📊 Tier List Preview — Moved Up, What Users Want First -->
+    <section class="section" id="tiers">
       <div class="container">
         <h2 class="section-title reveal">
-          <span>🔥</span> Current Meta
-          <span style="font-size:0.85rem;color:var(--text-muted);font-weight:500;">July 2026</span>
+          <span>📊</span> Tier List — July 2026
+          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:500;">Who to Play Right Now</span>
         </h2>
-        <div id="metaSummary" class="meta-snippet reveal"></div>
+        <div class="tier-preview-grid" id="tierPreview"></div>
+        <div style="text-align:center;margin-top:32px;" class="reveal">
+          <a href="tier-list.html" class="btn btn-primary">
+            <span>🔍</span> View Full Tier List (All 50+ Brawlers)
+          </a>
+        </div>
       </div>
     </section>
 
@@ -131,28 +149,42 @@
       <span class="gem-decoration gold" style="display:inline-block;position:relative;top:8px;"></span>
     </div>
 
-    <!-- Tier List Preview -->
-    <section class="section" id="tiers">
+    <!-- 📈 Current Meta Deep Dive -->
+    <section class="section" id="meta">
       <div class="container">
         <h2 class="section-title reveal">
-          <span>📊</span> Tier List
-          <span style="font-size:0.85rem;color:var(--text-muted);font-weight:500;">Top Tiers Preview</span>
+          <span>📈</span> Meta Deep Dive
+          <span style="font-size:0.85rem;color:var(--text-muted);font-weight:500;">Beyond the Tier List</span>
         </h2>
-        <div class="tier-preview-grid" id="tierPreview"></div>
-        <div style="text-align:center;margin-top:36px;" class="reveal">
-          <a href="tier-list.html" class="btn btn-primary">
-            <span>🔍</span> View Full Tier List
-            <span style="font-size:0.85rem;opacity:0.8;">→</span>
-          </a>
-        </div>
+        <div id="metaSummary" class="meta-snippet reveal"></div>
+        <!-- Per-mode breakdown -->
+        <div id="modeBreakdown" class="reveal" style="margin-top:28px;"></div>
       </div>
     </section>
 
-    <!-- Featured Brawlers -->
+    <!-- ❓ Pain Points & FAQ — Addressing Real Player Struggles -->
+    <section class="section" id="faq">
+      <div class="container">
+        <h2 class="section-title reveal">
+          <span>💡</span> Pain Points & FAQ
+          <span style="font-size:0.82rem;color:var(--accent-orange);font-weight:700;background:rgba(251,146,60,0.12);padding:3px 12px;border-radius:20px;">Community Q&A</span>
+        </h2>
+        <p class="section-subtitle reveal">Real answers to the questions Brawl Stars players ask most. No fluff — just what you need to climb.</p>
+        <div class="faq-grid" id="faqGrid"></div>
+      </div>
+    </section>
+
+    <!-- Gem divider -->
+    <div class="section-divider">
+      <span class="gem-decoration gold" style="display:inline-block;position:relative;top:8px;"></span>
+    </div>
+
+    <!-- 🦸 Top Meta Brawlers -->
     <section class="section" id="brawlers">
       <div class="container">
         <h2 class="section-title reveal">
           <span>🦸</span> Top Meta Brawlers
+          <span style="font-size:0.82rem;color:var(--text-muted);font-weight:500;">Click for Full Details</span>
         </h2>
         <div class="search-container reveal">
           <span class="search-icon">🔍</span>
@@ -163,12 +195,7 @@
       </div>
     </section>
 
-    <!-- Gem divider -->
-    <div class="section-divider">
-      <span class="gem-decoration gold" style="display:inline-block;position:relative;top:8px;"></span>
-    </div>
-
-    <!-- Strategy Guides -->
+    <!-- 📚 Strategy Guides -->
     <section class="section" id="guides">
       <div class="container">
         <h2 class="section-title reveal">
@@ -178,11 +205,11 @@
       </div>
     </section>
 
-    <!-- Latest Updates -->
+    <!-- 📰 Latest Updates -->
     <section class="section" id="updates">
       <div class="container">
         <h2 class="section-title reveal">
-          <span>📰</span> Latest Updates & Analysis
+          <span>📰</span> Latest Analysis
         </h2>
         <div class="news-grid" id="newsGrid"></div>
       </div>
@@ -193,9 +220,9 @@
       <div class="container">
         <div class="cta-section reveal">
           <h2>Ready to <span class="gradient-text">Climb Higher</span>?</h2>
-          <p>Bookmark BrawlMeta and stay ahead of the meta. We refresh tier lists and guides every week based on competitive play data from Power League and tournaments.</p>
+          <p>Bookmark BrawlMeta. We refresh tier lists and guides every week based on competitive data from Power League, Monthly Finals, and top player analysis.</p>
           <a href="tier-list.html" class="btn btn-primary">
-            <span>📊</span> Check Live Tier List
+            <span>📊</span> Check Full Tier List
           </a>
         </div>
       </div>
